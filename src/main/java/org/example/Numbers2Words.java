@@ -2,9 +2,10 @@ package org.example;
 
 public class Numbers2Words {
     private final long MAX_VALUE = 999999999;
-    private final String[] ones = {"", "one", "two", "three", "four", "five ", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+    private final String[] ones = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
     private final String[] tens = {"", "", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"};
     private final String[] thousands = {"", "thousand", "million", "billion", "trillion"};
+
 
     public String convert(long number) {
         if (number < 0) {
@@ -19,7 +20,14 @@ public class Numbers2Words {
         int i = 0;
         while (number > 0) {
             if (number % 1000 != 0) {
-                words = convertHundreds((int) (number % 1000)) + thousands[i] + " " + words;
+                String groupWords = convertHundreds((int) (number % 1000));
+                if (i > 0) {
+                    groupWords += " " + thousands[i];
+                }
+                if (!words.isEmpty()) {
+                    groupWords += " ";
+                }
+                words = groupWords + words;
             }
             number /= 1000;
             i++;
@@ -41,6 +49,9 @@ public class Numbers2Words {
         }
         if (number == 0) {
             return current;
+        }
+        if (current.isEmpty()) {
+            return ones[number] + " hundred";
         }
         return ones[number] + " hundred and " + current;
     }

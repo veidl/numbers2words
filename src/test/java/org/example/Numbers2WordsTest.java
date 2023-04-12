@@ -23,4 +23,11 @@ class Numbers2WordsTest {
         assertEquals("seven hundred and fourty five", numbers2Words.convert(745));
     }
 
+    @Test
+    void should_convert_millions_to_words() {
+        // 12.345.675
+        assertEquals("one hundred and twenty three million four hundred and fifty six thousand seven hundred and eighty nine", numbers2Words.convert(123456789));
+    }
+
+
 }
