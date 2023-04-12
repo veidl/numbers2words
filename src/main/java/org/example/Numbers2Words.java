@@ -1,7 +1,6 @@
 package org.example;
 
 public class Numbers2Words {
-    private final long MAX_VALUE = 999999999;
     private final String[] ones = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
     private final String[] tens = {"", "", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"};
     private final String[] thousands = {"", "thousand", "million", "billion", "trillion"};
@@ -12,11 +11,11 @@ public class Numbers2Words {
             return "N/A";
         }
 
-        if (number > MAX_VALUE) {
+        if (number > 999999999) {
             return "Number to large";
         }
 
-        String words = "";
+        StringBuilder words = new StringBuilder();
         int i = 0;
         while (number > 0) {
             if (number % 1000 != 0) {
@@ -24,15 +23,15 @@ public class Numbers2Words {
                 if (i > 0) {
                     groupWords += " " + thousands[i];
                 }
-                if (!words.isEmpty()) {
+                if (words.length() > 0) {
                     groupWords += " ";
                 }
-                words = groupWords + words;
+                words.insert(0, groupWords);
             }
             number /= 1000;
             i++;
         }
-        return words.trim();
+        return words.toString().trim();
     }
 
     private String convertHundreds(int number) {
