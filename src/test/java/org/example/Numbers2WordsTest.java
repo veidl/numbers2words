@@ -21,4 +21,9 @@ class Numbers2WordsTest {
         assertEquals("N/A", numbers2Words.convert(-123));
     }
 
+    @Test
+    void should_return_number_to_large_if_max_number_is_exceeded() {
+        assertEquals("Number to large", numbers2Words.convert(9999999990L));
+    }
+
 }
