@@ -16,4 +16,9 @@ class Numbers2WordsTest {
 
     }
 
+    @Test
+    void should_return_NA_if_number_is_negative() {
+        assertEquals("N/A", numbers2Words.convert(-123));
+    }
+
 }
