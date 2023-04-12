@@ -8,11 +8,19 @@ This project was developed using the TDD approach as it can be seen in the commi
 <!-- TOC -->
 
 * [Number to words converter](#number-to-words-converter)
+    * [Technologies](#technologies)
     * [General Info](#general-info)
     * [Setup](#setup)
     * [Result](#result)
 
 <!-- TOC -->
+
+## Technologies
+
+* Java (17)
+* Gradle
+* pitest
+* jacoco
 
 ## General Info
 
@@ -28,7 +36,7 @@ After pulling the application you can run:
 gradle test
 ``
 
-You can also run mutation testing [(PIT)](https://www.google.com):
+You can also run mutation testing [(PIT)](https://pitest.org/):
 
 ``
 gradle pitest
@@ -40,6 +48,6 @@ After running the tests, a jacoco [report](build/jacocoHtml) is generated.
 
 ![jacoco_test_report](images/jacocoTestCoverage.png)
 
-Additionally, the mutation [report](build/reports/pitest) is generated. 
+Additionally, the mutation [report](build/reports/pitest) is generated.
 
 ![pittest](images/pittest.png)
