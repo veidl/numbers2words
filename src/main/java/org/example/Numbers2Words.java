@@ -11,15 +11,15 @@ public class Numbers2Words {
             return "N/A";
         }
 
-        if (number > 999999999) {
+        if (number >= 999999999) {
             return "Number to large";
         }
 
-        StringBuilder words = new StringBuilder();
-        int i = 0;
+        var words = new StringBuilder();
+        var i = 0;
         while (number > 0) {
             if (number % 1000 != 0) {
-                String groupWords = convertHundreds((int) (number % 1000));
+                var groupWords = convertHundreds((int) (number % 1000));
                 if (i > 0) {
                     groupWords += " " + thousands[i];
                 }
