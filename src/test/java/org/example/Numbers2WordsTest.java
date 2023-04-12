@@ -26,4 +26,9 @@ class Numbers2WordsTest {
         assertEquals("Number to large", numbers2Words.convert(9999999990L));
     }
 
+    @Test
+    void should_convert_number_to_words() {
+        assertEquals("even hundred and fourty five", numbers2Words.convert(745));
+    }
+
 }
