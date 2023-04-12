@@ -28,5 +28,8 @@ class Numbers2WordsTest {
         assertEquals("one hundred and twenty three million four hundred and fifty six thousand seven hundred and eighty nine", numbers2Words.convert(123456789));
     }
 
-
+    @Test
+    void should_convert_max_number_to_words() {
+        assertEquals("nine hundred and ninety nine million nine hundred and ninety nine thousand nine hundred and ninety eight", numbers2Words.convert(999999998));
+    }
 }
